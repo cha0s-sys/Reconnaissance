@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#sudo /etc/init.d/tor restart
-#torify
-
 rm -rf gsd-tmp1.txt &> /dev/null
 tar=$1
 sfe=$(echo "$tar" | cut -d "." -f 1)
